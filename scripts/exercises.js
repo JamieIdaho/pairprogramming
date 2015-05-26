@@ -51,8 +51,10 @@ function filter(arr, filterCallback) {
   var array3 = [];
 
   forEach(arr, function(x) {
-    array3.push(filterCallback(x));
 
+    if (x !== null && x !== undefined && x !== NaN && (typeof x) !== "string") {
+    array3.push(filterCallback(x));
+    }
   })
 
   return array3;
