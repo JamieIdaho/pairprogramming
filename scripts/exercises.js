@@ -53,9 +53,9 @@ function filter(arr, filterCallback) {
   forEach(arr, function(x) {
 
     if (x !== null && x !== undefined && x !== NaN && (typeof x) !== "string") {
-    array3.push(filterCallback(x));
+      array3.push(filterCallback(x));
     }
-  })
+})
 
   return array3;
 
@@ -66,7 +66,14 @@ function filter(arr, filterCallback) {
 
 // 3. Write a function called pluck that extracts a list of property names:
 
-function pluck(list, propertyName) { /* Do stuff*/ }
+function pluck(list, propertyName) {
+  propertyArray = [];
+
+  forEach(list, function(x){
+    propertyArray.push(x.name);
+  })
+  return propertyArray;
+}
 
 var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
 pluck(stooges, 'name');
@@ -75,7 +82,17 @@ pluck(stooges, 'name');
 
 // 4. Write a function called find that looks through each value in the list, returning the first one that passes a truth test (predicate), or undefined if no value passes the test. The function returns as soon as it finds an acceptable element, and doesn't traverse the entire list.
 
-function find(list, predicate) { /* Do stuff */ }
+function find(list, predicate){
+  var answer = undefined;
+
+  for (i=0; i < list.length; i++) {
+    if (list[i] % 2 == 0) {
+      answer = list[i];
+      break
+    }
+  }
+    return answer;
+};
 
 var even = find([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
 //=> 2
