@@ -6,7 +6,14 @@
 
 // 1. Write your own forEach function. It takes the array and the function (referred to as a callback) as arguments:
 
-function forEach(list, callback) { /* Do stuff */ }
+function forEach(list, callback) {
+  var arr = [];
+
+  for (i=0; i<list.length; i++) {
+    arr.push(callback(list[i]));
+  }
+    return arr;
+}
 
 
 // 2. Write your own map, reduce, and filter functions that use your custom forEach to do their work.
