@@ -6,13 +6,12 @@
 
 // 1. Write your own forEach function. It takes the array and the function (referred to as a callback) as arguments:
 
-function forEach(list, callback) {
-  var arr = [];
+function forEach(list, eachCallback) {
 
-  for (i=0; i<list.length; i++) {
-    arr.push(callback(list[i]));
-  }
-    return arr;
+   for (i=0; i<list.length; i++) {
+    eachCallback(list[i]);
+    }
+
 }
 
 
@@ -24,6 +23,42 @@ function forEach(list, callback) {
 // Person [B] Drives, Person [A] Assists
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
+
+
+function map(arr, mapCallback) {
+  var array2 = [];
+
+  forEach(arr, function(x) {
+    array2.push(mapCallback(x));
+  });
+
+  return array2;
+};
+
+
+function reduce(arr, reduceCallback) {
+
+  var sum = 0;
+  forEach(arr, function(y) {
+    sum = sum + y;
+  })
+  return sum;
+};
+
+
+function filter(arr, filterCallback) {
+
+  var array3 = [];
+
+  forEach(arr, function(x) {
+    array3.push(filterCallback(x));
+
+  })
+
+  return array3;
+
+}
+
 
 
 
